@@ -10,10 +10,10 @@ def home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, 'Welcome!')
+            messages.success(request, 'You have been successfully logged in. Welcome!')
             return redirect('home')
         else:
-            messages.success(request, 'There was an error logging in, please try again.')
+            messages.error(request, 'Wrong credentials. Invalid username or password.')
             return redirect('home')
     else:    
         return render(request, "home.html", {})
