@@ -23,3 +23,11 @@ def home(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+def patient_record(request, pk):
+    if request.user.is_authenticated:
+        patient = Patient.objects.get(id=pk)
+        return render(request, 'patient.html', {'patient': patient})
+    else:
+        messages.error('You must be logged in to view that page.')
+        return redirect('home')

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+      <strong>{{ patient }}</strong>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Phone: </strong>{{ patient.phone }}</p>
+      <p class="card-text"><strong>Email: </strong>{{ patient.email }}</p>
+      <p class="card-text"><strong>Address: </strong>{{ patient.address }}</p>
+      <p class="card-text"><strong>City: </strong>{{ patient.city }}</p>
+      <p class="card-text"><strong>Created at: </strong>{{ patient.created_at }}</p>
+      <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    </div>
+  </div>
+
+{% endblock %}
