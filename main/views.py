@@ -29,5 +29,5 @@ def patient_record(request, pk):
         patient = Patient.objects.get(id=pk)
         return render(request, 'patient.html', {'patient': patient})
     else:
-        messages.error('You must be logged in to view that page.')
+        messages.error(request, 'You must be logged in to view that page.')
         return redirect('home')
