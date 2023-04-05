@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Patient
 
 def home(request):
+    patients = Patient.objects.all()
     # Check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -16,7 +18,7 @@ def home(request):
             messages.error(request, 'Wrong credentials. Invalid username or password.')
             return redirect('home')
     else:    
-        return render(request, "home.html", {})
+        return render(request, "home.html", {'patients': patients})
 
 def logout_user(request):
     logout(request)
