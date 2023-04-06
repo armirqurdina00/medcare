@@ -14,6 +14,7 @@
       <p class="card-text"><strong>Created at: </strong>{{ patient.created_at }}</p>
       <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
       <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+      <a href="{% url 'delete_patient' patient.id %}" class="btn btn-danger">Delete</a>
     </div>
   </div>
 

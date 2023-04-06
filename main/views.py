@@ -31,3 +31,13 @@ def patient_record(request, pk):
     else:
         messages.error(request, 'You must be logged in to view that page.')
         return redirect('home')
+
+def delete_patient(request, pk):
+    if request.user.is_authenticated:
+        patient = Patient.objects.get(id=pk)
+        patient.delete()
+        messages.success(request, 'Patient deleted successfully!')
+        return redirect('home')
+    else:
+        messages.error('You must be logged in to do that.')
+        return redirect('home')
