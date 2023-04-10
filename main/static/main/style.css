@@ -6,6 +6,11 @@ h2{
     text-align: center;
 }
 
+h1{
+    font-size: 30px;
+    padding: 20px 0;
+}
+
 .login-btn{
     width: 100%;
 }
@@ -13,6 +18,21 @@ h2{
 .container{
     width: 80%;
     margin: 0 auto;
+}
+
+.alert{
+    margin: 16px;
+}
+
+thead{
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #006a4e;
+    color: white;
+}
+
+tbody{
+    font-size: 15px;
 }
 
 .form-container{
@@ -25,4 +45,42 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.navbar-brand{
+    margin-left: 5px;
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.navbar{
+    background-color: #006a4e;
+    padding: 5px;
+}
+
+.nav-item{
+    font-size: 15px;
+}
+
+.nav-link{
+    color: #ddd;
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+.login-btn{
+    background-color: #006a4e;
+    border: #006a4e;
+    color: white;
+}
+
+.login-btn:hover{
+    background-color: #006a4e;
+    border: #006a4e;
+    color: white;
 }

@@ -3,30 +3,30 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-    <!-- <h2>Patients</h2> -->
-    <table class="table table-striped table-hover table-bordered">
-        <thead class="table-dark">
+    <h1>All Patients</h1>
+    <table class="table">
+        <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
             <th scope="col">City</th>
             <th scope="col">Created At</th>
-            <th scope="col">ID</th>
           </tr>
         </thead>
         <tbody>
             {% if patients %}
                 {% for patient in patients %}
                 <tr>
+                    <td> <a href="{% url 'patient' patient.id %}">{{ patient.id }}</a></td>
                     <td>{{ patient.first_name }} {{ patient.last_name }}</td>
                     <td>{{ patient.phone }}</td>
                     <td>{{ patient.email }}</td>
                     <td>{{ patient.address }}</td>
                     <td>{{ patient.city }}</td>
                     <td>{{ patient.created_at }}</td>
-                    <td> <a href="{% url 'patient' patient.id %}">{{ patient.id }}</a></td>
                 </tr>
                 {% endfor %}
             {% endif %}
@@ -42,7 +42,7 @@
             <div class="mb-3">
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div>
-            <button type="submit" class="btn btn-primary login-btn">Login</button>
+            <button type="submit" class="btn login-btn">Login</button>
         </form>
     </div>
     {% endif %}
