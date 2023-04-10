@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Patient
+from .forms import AddPatientForm
 
 def home(request):
     patients = Patient.objects.all()
@@ -41,3 +42,7 @@ def delete_patient(request, pk):
     else:
         messages.error('You must be logged in to do that.')
         return redirect('home')
+    
+def add_patient(request):
+    form = AddPatientForm
+    return render(request, "add_patient.html", {'form': form})
