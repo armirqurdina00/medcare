@@ -44,5 +44,14 @@ def delete_patient(request, pk):
         return redirect('home')
     
 def add_patient(request):
-    form = AddPatientForm
-    return render(request, "add_patient.html", {'form': form})
+    form = AddPatientForm(request.POST or None)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Patient added successfully.")
+                return redirect('home')
+        return render(request, "add_patient.html", {'form': form})
+    else:
+        messages.error(request, "You must be logged in!")
+        return redirect('home')

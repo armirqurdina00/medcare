@@ -2,11 +2,26 @@
 
 {% block content %}
 
-<h1>Add Patient</h1>
+<style>
+    input[type=text]{
+        background-color: #eee;
+    }
+    h1{
+        text-align: center;
+    }
+    .btn{
+        margin-top: 20px;
+    }
+</style>
 
-<form action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-</form>
+    <div class="form-container">
+        <h1>Add Patient</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn login-btn">Submit</button>
+        </form>
+    </div>
+
 
 {% endblock %}

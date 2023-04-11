@@ -84,3 +84,8 @@ tbody{
     border: #006a4e;
     color: white;
 }
+
+.add-form-container{
+    width: 40%;
+    margin: 0 auto;
+}
