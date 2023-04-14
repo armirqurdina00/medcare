@@ -31,6 +31,15 @@ thead{
     color: white;
 }
 
+.navbar-nav .nav-link.active{
+    color: white;
+    user-select: none;
+}
+
+.fa-user{
+    margin: 0 5px;
+}
+
 tbody{
     font-size: 15px;
 }
@@ -40,7 +49,7 @@ tbody{
     background-color: white;
     margin: 0 auto;
     width: 500px;
-    padding: 40px 60px 60px 60px;
+    padding: 40px 60px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,4 +97,14 @@ tbody{
 .add-form-container{
     width: 40%;
     margin: 0 auto;
+}
+
+.account-warning{
+    padding: 15px 0px;
+}
+
+.account-warning a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #006a4e;
 }

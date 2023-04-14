@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h1{
+        text-align: center;
+    }
+    .wrapper{
+        height: calc(100vh - 50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .add-form-container{
+        box-shadow: 0 0 20px 10px lightgray;
+        background-color: white;
+        width: 500px;
+        padding: 40px 60px;
+    }
+</style>
+    <div class="wrapper">
+        <div class="add-form-container">
+            <h1>Register</h1>
+            <form action="{% url 'home' %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn login-btn" type="button">Register</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

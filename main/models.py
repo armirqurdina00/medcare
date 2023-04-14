@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Patient(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -8,6 +9,7 @@ class Patient(models.Model):
     email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return (f"{self.first_name} {self.last_name}")
