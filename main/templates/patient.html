@@ -2,23 +2,31 @@
 
 {% block content %}
 
-<h1>Patient details</h1>
+<style>
+  .container{
+    display: block;
+  }
+</style>
 
-<div class="card">
-    <div class="card-header">
-      <strong>{{ patient }}</strong>
+<div class="container">
+  <h1>Patient details</h1>
+
+  <div class="card">
+      <div class="card-header">
+        <strong>{{ patient }}</strong>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><strong>Phone: </strong>{{ patient.phone }}</p>
+        <p class="card-text"><strong>Email: </strong>{{ patient.email }}</p>
+        <p class="card-text"><strong>Address: </strong>{{ patient.address }}</p>
+        <p class="card-text"><strong>City: </strong>{{ patient.city }}</p>
+        <p class="card-text"><strong>Created at: </strong>{{ patient.created_at }}</p>
+        <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
+        <p class="card-text"><strong>User: </strong>{{ patient.user }}</p>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+        <a href="{% url 'delete_patient' patient.id %}" class="btn btn-danger">Delete</a>
+      </div>
     </div>
-    <div class="card-body">
-      <p class="card-text"><strong>Phone: </strong>{{ patient.phone }}</p>
-      <p class="card-text"><strong>Email: </strong>{{ patient.email }}</p>
-      <p class="card-text"><strong>Address: </strong>{{ patient.address }}</p>
-      <p class="card-text"><strong>City: </strong>{{ patient.city }}</p>
-      <p class="card-text"><strong>Created at: </strong>{{ patient.created_at }}</p>
-      <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
-      <p class="card-text"><strong>User: </strong>{{ patient.user }}</p>
-      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-      <a href="{% url 'delete_patient' patient.id %}" class="btn btn-danger">Delete</a>
-    </div>
-  </div>
+</div>
 
 {% endblock %}

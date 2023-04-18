@@ -3,19 +3,6 @@
 {% block content %}
 
 <style>
-    /* *, body{
-        margin: 0;
-        padding: 0;
-    }
-    .container{
-        height: calc(100vh - 50px);
-        position: relative;
-    }
-
-    input[type=text]{
-        background-color: #eee;
-    } */
-
     h1{
         text-align: center;
         padding-bottom: 20px;
@@ -24,27 +11,16 @@
     .btn{
         margin: 20px 0px;
     }
-/*     
-    .add-form-container{
-        box-shadow: 0 0 20px 10px lightgray;
-        background-color: white;
-        margin: 0 auto;
-        width: 500px;
-        padding: 40px 60px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 </style>
-
-    <div class="form-container">
-        <h1>Add Patient</h1>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn login-btn">Submit</button>
-        </form>
+    <div class="container center-content">
+        <div class="form-container">
+            <h1>Add Patient</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn login-btn">Submit</button>
+            </form>
+        </div>
     </div>
 
 

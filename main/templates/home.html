@@ -1,33 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content %} 
 
 <style>
-    /* .wrapper{
-        position: relative;
-        height: calc(100vh - 50px);
+    .home-container{
+        display: block;
     }
-
-    .alert{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .add-form-container{
-        box-shadow: 0 0 20px 10px lightgray;
-        background-color: white;
-        margin: 0 auto;
-        width: 500px;
-        padding: 40px 60px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 </style>
 
     {% if user.is_authenticated %}
-        <h1>All Patients</h1>
+    <div class="container home-container">
+        <h1>My patients</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -54,7 +37,17 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+    </div>
     {% else %}
+    <style>
+        .alert{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 16px 0;
+        }
+    </style>
+    <div class="container center-content">
         <div class="form-container">
             <h2 class="mb-4">Login</h2>
             <form method="POST" action="{% url 'home' %}">
@@ -71,6 +64,7 @@
                 Don't have an account? <a href="{% url 'register' %}">Sign up here</a>
             </div>
         </div>
+    </div>
     {% endif %}
 
 {% endblock %}
