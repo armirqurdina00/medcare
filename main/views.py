@@ -5,7 +5,7 @@ from .models import Patient
 from .forms import AddPatientForm, RegisterForm
 
 def home(request):
-    patients = Patient.objects.all()
+    patients = Patient.objects.filter(user=request.user.id)
     # Check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -28,7 +28,11 @@ def logout_user(request):
 def patient_record(request, pk):
     if request.user.is_authenticated:
         patient = Patient.objects.get(id=pk)
-        return render(request, 'patient.html', {'patient': patient})
+        if request.user == patient.user:
+            return render(request, 'patient.html', {'patient': patient})
+        else:
+            messages.error(request,     "You can't view that page.")
+            return redirect('home')
     else:
         messages.error(request, 'You must be logged in to view that page.')
         return redirect('home')
@@ -36,9 +40,13 @@ def patient_record(request, pk):
 def delete_patient(request, pk):
     if request.user.is_authenticated:
         patient = Patient.objects.get(id=pk)
-        patient.delete()
-        messages.success(request, 'Patient deleted successfully!')
-        return redirect('home')
+        if request.user == patient.user:
+            patient.delete()
+            messages.success(request, 'Patient deleted successfully!')
+            return redirect('home')
+        else:
+            messages.error(request, "You don't have permission to do that.")
+            return redirect('home')
     else:
         messages.error('You must be logged in to do that.')
         return redirect('home')
@@ -68,8 +76,10 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
-            messages.success("You have successfully registered!")
+            messages.success(request, "You have successfully registered!")
             return redirect('home')
     else:
         form = RegisterForm()
         return render(request, "register.html", {'form': form})
+    
+    return render(request, "register.html", {'form': form})
