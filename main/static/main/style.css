@@ -1,5 +1,5 @@
 body{
-    background-color: #eee;
+    background-color: whitesmoke;
 }
 
 h2{
@@ -48,6 +48,11 @@ thead{
 
 tbody{
     font-size: 15px;
+}
+
+td a{
+    text-decoration: none;
+    color: black;
 }
 
 .form-container{
