@@ -46,6 +46,7 @@
             <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
             <p class="card-text"><strong>User: </strong>{{ patient.user }}</p>
             <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+            <a href="{% url 'edit_patient' patient.id %}" class="btn btn-primary">Edit</a>
             <a href="{% url 'delete_patient' patient.id %}" style="float: right" class="btn btn-danger">Delete</a>
         </div>
     </div>

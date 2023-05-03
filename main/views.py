@@ -31,7 +31,7 @@ def patient_record(request, pk):
         if request.user == patient.user:
             return render(request, 'patient.html', {'patient': patient})
         else:
-            messages.error(request,     "You can't view that page.")
+            messages.error(request, "You can't access that page.")
             return redirect('home')
     else:
         messages.error(request, 'You must be logged in to view that page.')
@@ -83,3 +83,20 @@ def register_user(request):
         return render(request, "register.html", {'form': form})
     
     return render(request, "register.html", {'form': form})
+
+def edit_patient(request, pk):
+    if request.user.is_authenticated:
+        current_patient = Patient.objects.get(id=pk)
+        if request.user == current_patient.user:
+            form = AddPatientForm(request.POST or None, instance=current_patient)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Patient has been updated!")
+                return redirect('home')
+            return render(request, 'edit_patient.html', {'form': form})
+        else:
+            messages.error(request, "You can't access that page!")
+            return redirect('home')
+    else:
+        messages.error(request, "You must be logged in!")
+        return redirect('home')

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    h1{
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .btn{
+        margin: 20px 0px;
+    }
+</style>
+    <div class="container center-content">
+        <div class="form-container">
+            <h1>Edit Patient</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn login-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
