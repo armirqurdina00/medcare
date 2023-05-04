@@ -21,13 +21,16 @@ h1{
 }
 
 .center-content{
-    height: calc(100vh - 50px);
     padding: 50px;
     align-items: center;
 }
 
 .alert{
     margin: 16px;
+}
+
+.card-body{
+    width: 500px;
 }
 
 thead{

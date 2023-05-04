@@ -41,6 +41,7 @@ class AddPatientForm(forms.ModelForm):
     email = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Email", "class": "form-control"}), label="")
     address = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Address", "class": "form-control"}), label="")
     city = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "City", "class": "form-control"}), label="")
+    description = forms.CharField(required=True, widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "Description"}), label="")
 
     class Meta:
         model = Patient

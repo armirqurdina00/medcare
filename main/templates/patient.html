@@ -42,9 +42,10 @@
             <p class="card-text"><strong>Email: </strong>{{ patient.email }}</p>
             <p class="card-text"><strong>Address: </strong>{{ patient.address }}</p>
             <p class="card-text"><strong>City: </strong>{{ patient.city }}</p>
+            <p class="card-text"><strong>Description: </strong>{{ patient.description }}</p>
             <p class="card-text"><strong>Created at: </strong>{{ patient.created_at }}</p>
             <p class="card-text"><strong>ID: </strong>{{ patient.id }}</p>
-            <p class="card-text"><strong>User: </strong>{{ patient.user }}</p>
+            <p class="card-text"><strong>User: </strong>{{ patient.user }}</p>            
             <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
             <a href="{% url 'edit_patient' patient.id %}" class="btn btn-primary">Edit</a>
             <a href="{% url 'delete_patient' patient.id %}" style="float: right" class="btn btn-danger">Delete</a>

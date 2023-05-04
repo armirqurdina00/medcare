@@ -15,6 +15,7 @@ class Patient(models.Model):
     email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
+    description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
